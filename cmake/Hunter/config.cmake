@@ -1,3 +1,9 @@
+if(MSVC)
+  # Workaround for TR1 deprecation in Visual Studio 15.5 until Google Test is updated  
+  # https://github.com/google/googletest/issues/1111
+  add_definitions(-D_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING)
+endif()
+
 hunter_config(
   xgboost
   VERSION 0.40-p10 # v0.7.0 introduces significant API changes
